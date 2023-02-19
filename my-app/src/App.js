@@ -2,22 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  let height = window.innerHeight;
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <iframe frameborder="0" src="https://itch.io/embed-upload/7379196?color=333333" allowfullscreen="" width="100%" height={height}><a href="https://yatsz.itch.io/interact%22%3E">Play Interact on itch.io</a></iframe>
     </div>
   );
 }
