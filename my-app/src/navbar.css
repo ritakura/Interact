@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto Slab', serif;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 10px;
+    padding-top: 8px;
+    border-bottom: solid;
+    border-width: 3px;
+    border-color: #E5E5E5;
+}
+
+.title {
+    font-size: 40px;
+    color: #398832;
+    margin-left: 30px;
+}
+
+.tabs {
+    width: 40%;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tab {
+    padding: 5px;
+}
+
+.tab .selected {
+    border-bottom: solid;
+    border-width: 3px;
+    border-color: #9e61c9;
+}
