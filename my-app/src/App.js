@@ -1,15 +1,51 @@
-import logo from './logo.svg';
+import React from 'react';
+import Navbar from './navbar';
+import Game from './game';
+import About from './about';
+import Adhd from './adhd';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      height: window.innerHeight,
+      view: "home",
+      classNames: require('classnames'),
+    }
+  }
 
-  let height = window.innerHeight;
-  
-  return (
-    <div className="App">
-      <iframe frameborder="0" src="https://itch.io/embed-upload/7379196?color=333333" allowfullscreen="" width="100%" height={height}><a href="https://yatsz.itch.io/interact%22%3E">Play Interact on itch.io</a></iframe>
-    </div>
-  );
+  set_view = (v) => {
+    this.setState({view: v});
+    console.log("onClick: ", this.state.view);
+  }
+
+  render() {
+    let active_view;
+    if (this.state.view === "home") {
+      active_view = <Game/>;
+    } else if (this.state.view === "about") {
+      active_view = <About/>;
+    } else if (this.state.view === "adhd") {
+      active_view = <Adhd/>;
+    }
+    return (
+      <div className="App">
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"/>
+
+        <div className="navbar">
+          <div class="title" onClick={() => {this.set_view("home")}}>Interact</div>
+          <div class="tabs">
+              <div className={this.state.classNames('tab', (this.state.view === "about") && 'selected')} onClick={() => {this.set_view("about")}} >About</div>
+              <div className={this.state.classNames('tab', (this.state.view === "adhd") && 'selected')} onClick={() => {this.set_view("adhd")}}>ADHD</div>
+          </div>
+        </div>
+        <div class="active-page">{active_view}</div>
+      </div>
+    );
+  };
 }
 
 export default App;
